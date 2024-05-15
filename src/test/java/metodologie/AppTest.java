@@ -112,7 +112,7 @@ public class AppTest extends TestCase
 		
 		File f = new File("cartella-a/cartella-b/cartella-c");
 		f.mkdirs();
-		File f1 = new File("cartella-c/img.png");
+		File f1 = new File("cartella-a/cartella-b/cartella-c/img.png");
 		f1.createNewFile();
 		Cartella c = new Cartella("cartella-a");
     	assertEquals(c.toString(), "cartella-a[ cartella-b[ cartella-c [ img.png ] ] ]");
