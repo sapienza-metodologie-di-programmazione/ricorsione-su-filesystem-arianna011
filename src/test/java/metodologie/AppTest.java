@@ -110,9 +110,12 @@ public class AppTest extends TestCase
 	@org.junit.Test
     public void testToString() throws IOException {
 		
-		creaCartella();
-		Cartella c = new Cartella("sotto-cartella-c-1");
-    	assertEquals(c.toString(), "sotto-cartella-c-1[ photo.jpg text5.txt ]");
+		File f = new File("cartella-a/cartella-b/cartella-c");
+		f.mkdirs();
+		File f1 = new File("cartella-c/img.png");
+		f1.createNewFile();
+		Cartella c = new Cartella("cartella-a");
+    	assertEquals(c.toString(), "cartella-a[ cartella-b[ cartella-c [ img.png ] ] ]");
     }
 	
 	
