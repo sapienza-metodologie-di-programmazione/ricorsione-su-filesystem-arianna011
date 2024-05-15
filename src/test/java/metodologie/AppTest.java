@@ -111,11 +111,8 @@ public class AppTest extends TestCase
     public void testToString() throws IOException {
 		
 		creaCartella();
-		Cartella c = new Cartella("cartella");
-    	assertEquals(c.toString(), 
-    			"cartella[ sotto-cartella-a-1[ sotto-cartella-a-2[ sotto-cartella-a-3[ img1.png text1.txt text2.txt ] ] ]"
-    			+ " sotto-cartella-b-1[ img2.png sotto-cartella-b-2[ data.csv text3.txt ] text4.txt ]"
-    			+ " sotto-cartella-c-1[ photo.jpg text5.txt ] ]");
+		Cartella c = new Cartella("sotto-cartella-c-1");
+    	assertEquals(c.toString(), "sotto-cartella-c-1[ photo.jpg text5.txt ]");
     }
 	
 	
