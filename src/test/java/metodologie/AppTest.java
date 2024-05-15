@@ -115,7 +115,7 @@ public class AppTest extends TestCase
 		File f1 = new File("cartella-a/cartella-b/cartella-c/img.png");
 		f1.createNewFile();
 		Cartella c = new Cartella("cartella-a");
-    	assertEquals(c.toString(), "cartella-a[ cartella-b[ cartella-c [ img.png ] ] ]");
+    	assertEquals(c.toString(), "cartella-a[ cartella-b[ cartella-c[ img.png ] ] ]");
     }
 	
 	
