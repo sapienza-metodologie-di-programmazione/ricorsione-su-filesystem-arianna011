@@ -1,6 +1,7 @@
 package metodologie;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public class Cartella
     
     public Cartella(String percorso) 
     {
-    	//implementare
+    	cartella = new File(percorso);
     }
     
     /**
@@ -23,7 +24,15 @@ public class Cartella
      */
     public static boolean cercaFile(File dir, String s) {
     	
-    	//implementare
+    	for (File f : dir.listFiles())
+    	{
+    		if (f.isFile() && f.getName().equals(s)) return true;
+    		if (f.isDirectory()) 
+    		{
+    			if (cercaFile(f, s)) return true;
+    		}
+    	}
+    	
     	return false;
     }
     
@@ -34,8 +43,25 @@ public class Cartella
      */
     public static Set<File> cercaEstensione(File dir, String e) {
     	
-    	//implementare
-    	return null;
+    	HashSet<File> s = new HashSet<File>();
+    	
+    	for (File f : dir.listFiles())
+    	{
+    		if (f.isFile())
+    		{
+    			int i = f.getName().lastIndexOf('.');
+    			String ext = f.getName().substring(i);
+    			if (ext.equals(e))
+    				s.add(f);
+    		}
+    			
+    		if (f.isDirectory()) 
+    		{
+    			s.addAll(cercaEstensione(f, e));
+    		}
+    	}
+    	
+    	return s;
     }
     
     /**
@@ -45,17 +71,43 @@ public class Cartella
      */
     public static Set<File> cercaEstensione(File dir, List<String> es) {
     	
-    	//implementare
-    	return null;
+    	Set<File> s = new HashSet<File>();
+    	
+    	for (File f : dir.listFiles())
+    	{
+    		if (f.isFile())
+    		{
+    			int i = f.getName().lastIndexOf('.');
+    			String ext = f.getName().substring(i);
+    			if (es.contains(ext))
+    				s.add(f);
+    		}
+    			
+    		if (f.isDirectory()) 
+    		{
+    			s.addAll(cercaEstensione(f, es));
+    		}
+    	}
+    	
+    	return s;
     }
     
     
     @Override
     public String toString() {
     	
-    	//implementare
-    	return null;
+    	StringBuilder sb = new StringBuilder();
+    	sb.append(cartella.getName()+"[ ");
+    	for (File f : cartella.listFiles()) 
+    	{
+    		if (f.isFile()) sb.append(f.getName()+" ");
+    		if (f.isDirectory()) sb.append(new Cartella(f.getPath()).toString()+" ");
+    	}
+    	sb.append("]");
+    	
+    	return sb.toString();
     }
     
     
 }
+
