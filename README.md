@@ -7,16 +7,17 @@ La classe è dotata dei seguenti metodi:
 
     - ATTENZIONE: la ricerca deve essere eseguita *ricorsivamente* sulle eventuali sotto-cartelle contenute nella cartella principale
 
+
 - **cercaEstensione**: prende in input una stringa rappresentante un'estensione di file (ad esempio `".txt"`) e restituisce una lista contenente tutti i file con l’estensione specificata presenti nella cartella.
    
     - BONUS: realizzare una versione in overload di **cercaEstensione** che prende in input una lista di estensioni di file e restituisce la lista dei file con tali estensioni presenti nella cartella
 
-<br>
 
 Inoltre, la classe ridefinisce il metodo **toString()** in modo che una cartella sia rappresentata dal suo nome seguito da una parentesi aperta,
 dall’elenco di file e cartelle in essa contenuti separati da spazio e infine da una parentesi chiusa. 
 
 Ad esempio, una cartella *src* organizzata nel modo seguente:
+
 ```
 src
     it
@@ -28,6 +29,7 @@ src
 ```
 
 viene rappresentata dalla stringa:
+
 ```
 "src[ it[ Prova.java Test.java ] org[ MyClass.java ] package-info.java ]"
 ```
